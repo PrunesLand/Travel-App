@@ -45,8 +45,8 @@ export const info = StyleSheet.create({
     locationContainer:{
         // height:'12vh',
         // width:'100%',
-        flex:1,
-        height:12,
+        
+        height:100,
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
@@ -68,8 +68,8 @@ export const description = StyleSheet.create({
     header:{
         // width:'100%',
         // height:'5vh',
-        flex:1,
-        height:5,
+      
+        height:50,
         display:'flex',
         flexDirection:'row',
         padding:10

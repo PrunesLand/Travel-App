@@ -87,8 +87,8 @@ export default function InfoScreen() {
         <View style={account.background}>
             <InfoHeader/>
             <InfoHero/>
-            {/* <SetLocation/>
-            <Description/> */}
+            <SetLocation/>
+            <Description/>
         </View>
     )
 }

@@ -6,13 +6,14 @@ import InfoScreen from './Components/InformationScreen/InfoScreen';
 import LoginScreen from './Components/LoginScreen/LoginScreen';
 import WelcomeScreen from './Components/WelcomeScreen/WelcomeScreen'
 import RegisterScreen from './Components/RegisterScreen/RegisterScreen'
+import TravelScreen from './Components/TravelScreen/TravelScreen';
 
 export default function App() {
   return (
     // <View style={styles.container}>
     //   <Text>tst</Text>
     // </View>
-    <InfoScreen  />
+    <TravelScreen  />
   );
 }
 
