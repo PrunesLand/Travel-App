@@ -10,19 +10,22 @@ import Item from './Item'
 const Data = [
     {
         id:'1',
-        city: 'Sydney',
+        city: 'Surfing',
+        category:'activity',
         title:'',
         description:''
     },
     {
         id:'2',
-        city: 'Melbourne',
+        city: 'Blue Mountains',
+        category:'visit',
         title:'',
         description:''
     },
     {
         id:'3',
-        city: 'Perth',
+        city: 'Sushi',
+        category:'food',
         title:'',
         description:''
     },
@@ -101,17 +104,37 @@ const List = ({onPress}) => {
 }
 
 const AddList = () => {
+
+    const [modalVisible, setModalVisible] = useState(false);
+
     return(
-    <TouchableHighlight onPress={console.log()}>
+    <View style={filter.container}>
+
+    <TouchableOpacity onPress={() => setModalVisible(true)}>
         <View style={add.container}>
             <Text style={{color:'#fff'}}>Add</Text>
-            <MaterialCommunityIcons
-                name='plus'
-                size={25}
-                color='#fff'
-                />
+                <MaterialCommunityIcons
+                    name='plus'
+                    size={25}
+                    color='#fff'
+                    />
         </View>
-    </TouchableHighlight>
+    </TouchableOpacity>
+        <Modal visible={modalVisible} animationType='slide'>
+            <View style={account.background}>
+                <Button title='close' onPress={()=> setModalVisible(false)}/>
+                <AppTextInput placeholder='insert title'/>
+                <TouchableOpacity onPress={()=> console.log()}>
+                    <View>
+                        <MaterialCommunityIcons
+                        name='plus'
+                        size={55}
+                        />
+                    </View>
+                </TouchableOpacity>
+            </View>
+        </Modal>
+    </View>
     )
 }
 
