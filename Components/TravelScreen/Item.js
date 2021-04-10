@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, TouchableOpacity , StyleSheet} from 'react-native'
 
-export default function Item({city, navigation, onPress}) {
+export default function Item({city, onPress}) {
     return (
         <TouchableOpacity onPress={onPress}>
             <View style={item.container} >
@@ -21,7 +21,8 @@ const item = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         borderColor:'#1B4332',
-        borderWidth:6
+        borderWidth:6,
+        
 
     },
     text:{

@@ -48,11 +48,13 @@ export const travel = StyleSheet.create({
     //     color:'#fff',
         
     // },
-    // renderItems:{
-    //     height:'10vh',
-    //     width:'100%',
+    renderItems:{
+        // height:'10vh',
+        // width:'100%',
+        height:65,
+        flex:1
         
-    // },
+    },
     travelHeader:{
         // height:'10vh',
         // width:'100%',

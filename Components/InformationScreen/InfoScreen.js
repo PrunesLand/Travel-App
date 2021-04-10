@@ -7,14 +7,14 @@ import {MaterialCommunityIcons} from '@expo/vector-icons'
 const InfoHeader = () => {
     return(
         <View style={account.header}>
-            <TouchableHighlight>
+            {/* <TouchableHighlight>
             <MaterialCommunityIcons
             name='close'
             size={45}
             color='#fff'
             />
             
-            </TouchableHighlight>
+            </TouchableHighlight> */}
         </View>
     )
 }

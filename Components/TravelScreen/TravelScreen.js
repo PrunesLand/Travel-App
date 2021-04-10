@@ -81,20 +81,20 @@ const Filter = () => {
     )
 }
 
-const List = () => {
-    const renderItem = ({item, navigation}) => (
-        <TouchableHighlight >
-            <View style={travel.renderItems}>
-                <Item city={item.city} onPress={()=>navigation.navigate('info')}/>
-            </View>
-        </TouchableHighlight>
-    )
+const List = ({onPress}) => {
+    // const renderItem = ({item}) => (
+        
+    //         <View style={travel.renderItems}>
+    //             <Item city={item.city} onPress={onPress}/>
+    //         </View>
+        
+    // )
     return(
         <View style={travel.listContainer}>
                 <FlatList
                 data={Data}
-                renderItem={renderItem}
                 keyExtractor={item => item.id}
+                renderItem={({item})=> <Item city={item.city} onPress={onPress}/>}
                 />
         </View>
     )
@@ -116,7 +116,7 @@ const AddList = () => {
 }
 
 
-const TravelScreen = () => {
+const TravelScreen = ({navigation}) => {
 
     
 
@@ -124,7 +124,7 @@ const TravelScreen = () => {
         <View style={account.background}>
             <TravelHeader />
             <Filter/>
-            <List/>
+            <List onPress={()=> navigation.navigate('info')}/>
             <AddList/>
            
         </View>
