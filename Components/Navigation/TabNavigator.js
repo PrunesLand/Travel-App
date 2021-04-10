@@ -7,7 +7,12 @@ import TravelScreen from '../TravelScreen/TravelScreen';
 const AppTab = createBottomTabNavigator();
 
 const TabNavigator = () => (
-    <AppTab.Navigator>
+    <AppTab.Navigator         
+    tabBarOptions={{
+        activeTintColor: 'tomato',
+        inactiveTintColor: 'gray',
+        activeBackgroundColor: '#2D6A4F'
+      }}>
         <AppTab.Screen name="account" component={AccountScreen} />
         <AppTab.Screen name="travel" component={TravelScreen} />
     </AppTab.Navigator>

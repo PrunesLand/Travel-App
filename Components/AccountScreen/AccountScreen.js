@@ -22,7 +22,7 @@ export default function AccountScreen({ navigation, route}) {
             >
                 <Text 
                 style={account.userText}
-                >Hi, username </Text>
+                >Hi, {route.params.paramName} </Text>
             </View>
             {/* sydney button is stored */}
             <View 

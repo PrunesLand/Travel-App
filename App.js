@@ -17,7 +17,7 @@ export default function App() {
     //   <Text>tst</Text>
     // </View>
     <NavigationContainer>
-     <TabNavigator/>
+     <AuthNavigator/>
    </NavigationContainer>
   );
 }

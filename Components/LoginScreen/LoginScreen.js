@@ -34,11 +34,13 @@ let schema = yup.object().shape({
 
 const users=[
       {
+          id: "user1",
           username:'John Jones',
           email:'jojo@g.com',
           password:'pass'
       },
       {
+        id:"user2",
         username:'Billy Bat',
         email:'Billy@g.com',
         password:'pass4'
@@ -89,12 +91,7 @@ const LoginScreen = ({navigation}) => {
                                         resetForm();
                                         navigation.navigate('account', {
                                             screen: 'account',
-                                            param:{
-                                                screen:'account',
-                                                param:{
-                                                    paramName: values.username
-                                                },
-                                            }
+                                            params:{paramName: values.username}
                                         }
                                         );
                                         // createUser(values);

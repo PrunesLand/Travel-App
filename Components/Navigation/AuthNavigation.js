@@ -6,6 +6,7 @@ import RegisterScreen from '../RegisterScreen/RegisterScreen'
 import TravelScreen from '../TravelScreen/TravelScreen';  
 import InfoScreen from '../InformationScreen/InfoScreen';
 import AccountScreen from '../AccountScreen/AccountScreen';
+import TabNavigator from './TabNavigator'
 
 
 const AppStack = createStackNavigator();
@@ -16,8 +17,7 @@ const AuthNavigator = () => (
         <AppStack.Screen name='register' component={RegisterScreen} />
         <AppStack.Screen name='login' component={LoginScreen} />
         <AppStack.Screen name='travel' component={TravelScreen} />
-        <AppStack.Screen name='info' component={InfoScreen} />
-        <AppStack.Screen name='account' component={AccountScreen} options={{headerShown:false}} />
+        <AppStack.Screen name='account' component={TabNavigator} options={{headerShown:false}} />
         
     </AppStack.Navigator>
 )
