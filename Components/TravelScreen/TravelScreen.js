@@ -31,9 +31,9 @@ const Data = [
     },
 ]
 
-const category = [
+const categories = [
     {
-        label:'all',
+        label:'activity',
         value: 1
     },
     {
@@ -43,11 +43,8 @@ const category = [
     {
         label: 'visit',
         value:3
-    },
-    {
-        label:'activity',
-        value: 4
     }
+    
 ] 
 
 const TravelHeader = ({onPress}) => {
@@ -80,14 +77,14 @@ const TravelHeader = ({onPress}) => {
     )
 }
 
-const Filter = ({placeholder}) => {
+const Filter = ({placeholder, onSelectedItem, selectedItem}) => {
     const [modalVisible, setModalVisible] = useState(false);
 
-    const RenderItem = ({label}) => (
+    const RenderItem = ({label, onPress}) => (
 
         <View style={filter.itemContainer}>
-            <TouchableOpacity onPress={console.log()}>
-                <Text style={filter.itemText} onPress={()=>setModalVisible(false)}>{label}</Text>
+            <TouchableOpacity onPress={onPress}>
+                <Text style={filter.itemText}>{label}</Text>
             </TouchableOpacity>
         </View>
     )
@@ -96,7 +93,7 @@ const Filter = ({placeholder}) => {
         <View style={filter.container}>
             <TouchableHighlight onPress={() => setModalVisible(true)}>
                 <View style={filter.wrapper}>
-                    <Text>test</Text>
+                    <Text>{selectedItem? selectedItem.label: placeholder}</Text>
                     <MaterialCommunityIcons
                     name='chevron-down' 
                     size={24}
@@ -107,11 +104,15 @@ const Filter = ({placeholder}) => {
                 <View style={account.background}>
                     <Button title='close' onPress={()=> setModalVisible(false)}/>
                     <FlatList
-                        data={category}
+                        data={categories}
                         keyExtractor={item => item.value.toString()}
                         renderItem={({item}) =>
                         <RenderItem
                         label = {item.label}
+                        onPress={()=>{
+                            setModalVisible(false);
+                            onSelectedItem(item)
+                        }}
                         />
                     }
                     />
@@ -178,13 +179,17 @@ const AddList = () => {
 
 
 const TravelScreen = ({navigation}) => {
-
+    const [category, setCategory] = useState()
     
 
     return (
         <View style={account.background}>
             <TravelHeader />
-            <Filter/>
+            <Filter 
+            placeholder='all'
+            selectedItem = {category}
+            onSelectedItem = {item => setCategory(item)}
+            />
             <List onPress={()=> navigation.navigate('info')}/>
             <AddList/>
            
