@@ -9,6 +9,7 @@ import RegisterScreen from './Components/RegisterScreen/RegisterScreen'
 import TravelScreen from './Components/TravelScreen/TravelScreen';
 import AuthNavigator from './Components/Navigation/AuthNavigation';
 import {NavigationContainer} from '@react-navigation/native'
+import TabNavigator from './Components/Navigation/TabNavigator';
 
 export default function App() {
   return (
@@ -16,7 +17,7 @@ export default function App() {
     //   <Text>tst</Text>
     // </View>
     <NavigationContainer>
-     <AuthNavigator/>
+     <TabNavigator/>
    </NavigationContainer>
   );
 }
