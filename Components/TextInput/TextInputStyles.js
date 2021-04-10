@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native'
 export const textBox = StyleSheet.create({
     container:{
         width:300,
-        height:100,
+        height:80,
         textAlign:'center',
         alignContent:'center',
         
@@ -15,8 +15,9 @@ export const textBox = StyleSheet.create({
         height:45,
         width:300,
         borderRadius:15,
-        padding:15,
-        
+        padding:10,
+        fontSize:15,
+        color:'#000'
     },
     text:{
         fontSize:20,

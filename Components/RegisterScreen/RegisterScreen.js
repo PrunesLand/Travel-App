@@ -5,7 +5,20 @@ import {logoStyle,RegStyles,square} from './RegisterStyles'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import AppTextInput from '../TextInput/AppTextInput'
 import RegLogButton from './RegLogButton'
-// import {useNavigation} from '@react-navigation/native'
+import {Formik} from 'formik'
+import * as yup from 'yup';
+import { color } from 'react-native-reanimated'
+
+let schema = yup.object().shape({
+    
+    username: yup.string().required().min(4),
+    password: yup.string().required().min(3).max(8),
+    email: yup.string().required().email()
+   
+  });
+
+
+
 
 const RegisterExit = ({onPress}) => {
     return(
@@ -22,6 +35,11 @@ const RegisterExit = ({onPress}) => {
 }
 
 const RegisterScreen = ({navigation}) => {
+
+    // const [password, setPassword] = useState();
+    // const [username, setUsername] = useState();
+    // const [email, setEmail] = useState();
+
     return (
         <View style={styles.container}>
             <ImageBackground 
@@ -32,7 +50,7 @@ const RegisterScreen = ({navigation}) => {
             navigation={() => navigation.goBack()}
             /> */}
             <View style={styles.content}>
-                <View style={logoStyle.container}>
+                {/* <View style={logoStyle.container}>
                     <View style={styles.Logo}>
                         <MaterialCommunityIcons 
                             name='airplane'
@@ -40,26 +58,60 @@ const RegisterScreen = ({navigation}) => {
                             color='#fff'
                             />
                     </View>
-                </View>
+                </View> */}
                 <View style={RegStyles.container}>
                         <View style={square.container}>
-                            <Text style={RegStyles.title}
+                        <Text style={RegStyles.title}>Register</Text>
+                            <Formik
+                                initialValues={{email:'', password:'',username:''}}
+                                onSubmit = {values => console.log(values)}
+                                validationSchema={schema}
+                            >
+                                {({handleChange, handleSubmit, errors}) =>(
+
+                                    <>
+    
+                                        <AppTextInput 
+                                        description='Name:'
+                                        onChangeText = {handleChange('username')}
+                                        />
+                                        
+                                        <Text style={{color:'#fff', fontSize:15}}>{errors.username}</Text>
+
+                                        <AppTextInput 
+                                        description='Email:' 
+                                        keyboardType='email-address'
+                                        onChangeText = {handleChange('email')}
+                                        />
+                                        <Text style={{color:'#fff', fontSize:15}}>{errors.email}</Text>
+
+                                        <AppTextInput 
+                                        description='Password:'
+                                        secureTextEntry={true}
+                                        onChangeText = {handleChange('password')}/>
+                                        <Text style={{color:'#fff', fontSize:15}}>{errors.password}</Text>
+
+                                        <RegLogButton title='Register' 
+                                        onPress={
+                                            handleSubmit
+                                        }
+                                        />
+                                    </>
+
+                                )}
+                                    
+
+                                
+
+
+                            </Formik>
+
+
                             
-                            >Register</Text>
-                            <AppTextInput 
-                            description='Name:'
-                            />
-                            <AppTextInput 
-                            description='Email:' 
-                            keyboardType='email-address'
-                            />
-                            <AppTextInput 
-                            description='Password:'
-                            secureTextEntry={true}
-                            />
-                            <RegLogButton title='Register' 
-                            onPress={() => navigation.navigate('welcome')}
-                            />
+                            
+
+                           
+                            
                         </View>
                 </View>
             </View>

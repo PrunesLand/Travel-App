@@ -9,19 +9,19 @@ import AppTextInput from '../TextInput/AppTextInput'
 // import {useNavigation} from '@react-navigation/native'
 
 
-export const LoginExit = ({onPress}) => {
-    return(
+// export const LoginExit = ({onPress}) => {
+//     return(
         
-        <View style={RegStyles.closeContainer}>
-        <TouchableHighlight onPress={onPress}>
-            <MaterialCommunityIcons
-            name='close'
-            style={RegStyles.close}
-            />
-        </TouchableHighlight>
-        </View>
-    )
-}
+//         <View style={RegStyles.closeContainer}>
+//         <TouchableHighlight onPress={onPress}>
+//             <MaterialCommunityIcons
+//             name='close'
+//             style={RegStyles.close}
+//             />
+//         </TouchableHighlight>
+//         </View>
+//     )
+// }
 
 const LoginScreen = ({navigation}) => {
 
@@ -37,7 +37,7 @@ const LoginScreen = ({navigation}) => {
             onPress={() => navigation.goBack()}
             /> */}
             <View style={styles.content}>
-                <View style={Login.logoContainer}>
+                {/* <View style={Login.logoContainer}>
                     <View style={styles.Logo}>
                         <MaterialCommunityIcons 
                             name='airplane'
@@ -45,7 +45,7 @@ const LoginScreen = ({navigation}) => {
                             color='#fff'
                             />
                     </View>
-                </View>
+                </View> */}
                 
                 <View style={Login.LoginContainer}>
                         <View style={Login.square}>

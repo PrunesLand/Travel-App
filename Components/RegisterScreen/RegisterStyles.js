@@ -49,14 +49,15 @@ export const square = StyleSheet.create({
         borderRadius:15,
         width:370,
         height:450,
-        top:190,
+        top:10,
         left:10
     }
 })
 
 export const regButton = StyleSheet.create({
     Button:{
-        height:60,
+        top:20,
+        height:50,
         width:200,
         borderRadius:15,
         backgroundColor: '#1B4332',

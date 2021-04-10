@@ -28,7 +28,7 @@ export const Login = StyleSheet.create({
         alignItems:'center',
         borderRadius:15,
         width:370,
-        height:350,
+        height:450,
         top:100,
         left:10
     }
