@@ -5,7 +5,7 @@ import Button from './Button'
 import LogOffButton from './LogOffButton'
 
 
-export default function AccountScreen({username, navigation}) {
+export default function AccountScreen({ navigation, route}) {
     return (
         <View 
         style={account.background}
@@ -22,7 +22,7 @@ export default function AccountScreen({username, navigation}) {
             >
                 <Text 
                 style={account.userText}
-                >Hi, {username} </Text>
+                >Hi, username </Text>
             </View>
             {/* sydney button is stored */}
             <View 

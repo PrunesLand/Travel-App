@@ -67,29 +67,34 @@ const RegisterScreen = ({navigation}) => {
                                 onSubmit = {values => console.log(values)}
                                 validationSchema={schema}
                             >
-                                {({handleChange, handleSubmit, errors}) =>(
+                                {({handleChange, handleSubmit, errors, setFieldTouched, touched}) =>(
 
                                     <>
     
                                         <AppTextInput 
                                         description='Name:'
                                         onChangeText = {handleChange('username')}
+                                        onBlur={()=> setFieldTouched('username')}
                                         />
                                         
-                                        <Text style={{color:'#fff', fontSize:15}}>{errors.username}</Text>
+                                        {touched.username && <Text style={{color:'#fff', fontSize:15}}>{errors.username}</Text>}
 
                                         <AppTextInput 
                                         description='Email:' 
                                         keyboardType='email-address'
                                         onChangeText = {handleChange('email')}
+                                        onBlur={()=> setFieldTouched('email')}
                                         />
-                                        <Text style={{color:'#fff', fontSize:15}}>{errors.email}</Text>
+                                        {touched.email && <Text style={{color:'#fff', fontSize:15}}>{errors.email}</Text>}
 
                                         <AppTextInput 
                                         description='Password:'
                                         secureTextEntry={true}
-                                        onChangeText = {handleChange('password')}/>
-                                        <Text style={{color:'#fff', fontSize:15}}>{errors.password}</Text>
+                                        onChangeText = {handleChange('password')}
+                                        onBlur={()=> setFieldTouched('password')}
+
+                                        />
+                                        { touched.password && <Text style={{color:'#fff', fontSize:15}}>{errors.password}</Text>}
 
                                         <RegLogButton title='Register' 
                                         onPress={
