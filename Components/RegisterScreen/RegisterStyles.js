@@ -31,8 +31,8 @@ export const logoStyle = StyleSheet.create({
         // height:'35vh',
         // width:'100%',
         flex:1,
-        top:85,
-        left:100,
+        top:25,
+        left:120,
         display:'flex',
         justifyContent:'center',
         alignItems:'center',  
@@ -49,7 +49,7 @@ export const square = StyleSheet.create({
         borderRadius:15,
         width:370,
         height:450,
-        top:270,
+        top:190,
         left:10
     }
 })

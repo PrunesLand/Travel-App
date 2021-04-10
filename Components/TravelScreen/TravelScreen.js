@@ -9,19 +9,19 @@ import Item from './Item'
 
 const Data = [
     {
-        id:1,
+        id:'1',
         city: 'Sydney',
         title:'',
         description:''
     },
     {
-        id:2,
+        id:'2',
         city: 'Melbourne',
         title:'',
         description:''
     },
     {
-        id:3,
+        id:'3',
         city: 'Perth',
         title:'',
         description:''
@@ -32,14 +32,16 @@ const TravelHeader = ({onPress}) => {
     return(
         <View style={travel.travelHeader}>
                 
-                
-                <View style={travel.back} >
-                    <MaterialCommunityIcons
-                    name='chevron-left'
-                    size={60}
-                    color='#fff'
-                    />
-                </View>
+                {/* <TouchableHighlight onPress={onPress}>
+
+                    <View style={travel.back} >
+                        <MaterialCommunityIcons
+                        name='chevron-left'
+                        size={60}
+                        color='#fff'
+                        />
+                    </View>
+                </TouchableHighlight>
                 
                 <View style={travel.account}>
                     <MaterialCommunityIcons
@@ -47,7 +49,7 @@ const TravelHeader = ({onPress}) => {
                     size={45}
                     color='#fff'
                     />
-                </View>
+                </View> */}
                 <View style={travel.headerTextContainer}>
                     <Text style={travel.headerText}>Travels</Text>
                 </View>
@@ -79,18 +81,17 @@ const Filter = () => {
     )
 }
 
-const List = ({onPress}) => {
-    const renderItem = ({item, onPress}) => (
-        <TouchableHighlight onPress={onPress}>
+const List = () => {
+    const renderItem = ({item, navigation}) => (
+        <TouchableHighlight >
             <View style={travel.renderItems}>
-                <Item city={item.city}/>
+                <Item city={item.city} onPress={()=>navigation.navigate('info')}/>
             </View>
         </TouchableHighlight>
     )
     return(
         <View style={travel.listContainer}>
                 <FlatList
-                onPress={onPress}
                 data={Data}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
@@ -101,7 +102,7 @@ const List = ({onPress}) => {
 
 const AddList = () => {
     return(
-    <TouchableHighlight>
+    <TouchableHighlight onPress={console.log()}>
         <View style={add.container}>
             <Text style={{color:'#fff'}}>Add</Text>
             <MaterialCommunityIcons
@@ -115,19 +116,15 @@ const AddList = () => {
 }
 
 
-const TravelScreen = ({navigation}) => {
+const TravelScreen = () => {
 
     
 
     return (
         <View style={account.background}>
-            <TravelHeader/>
+            <TravelHeader />
             <Filter/>
-            <View>
-                <List 
-                // onPress = {() => navigation.navigate('edit')}
-                />
-            </View>
+            <List/>
             <AddList/>
            
         </View>

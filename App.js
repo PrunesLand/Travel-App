@@ -7,13 +7,17 @@ import LoginScreen from './Components/LoginScreen/LoginScreen';
 import WelcomeScreen from './Components/WelcomeScreen/WelcomeScreen'
 import RegisterScreen from './Components/RegisterScreen/RegisterScreen'
 import TravelScreen from './Components/TravelScreen/TravelScreen';
+import AuthNavigator from './Components/Navigation/AuthNavigation';
+import {NavigationContainer} from '@react-navigation/native'
 
 export default function App() {
   return (
     // <View style={styles.container}>
     //   <Text>tst</Text>
     // </View>
-    <TravelScreen  />
+    <NavigationContainer>
+     <AuthNavigator/>
+   </NavigationContainer>
   );
 }
 

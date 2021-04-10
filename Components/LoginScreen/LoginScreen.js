@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { View, Text, ImageBackground, TouchableHighlight , TextInput} from 'react-native'
 import {styles} from '../WelcomeScreen/WelcomeStyles'
 import {logoStyle,RegStyles,square} from '../RegisterScreen/RegisterStyles'
@@ -24,17 +24,20 @@ export const LoginExit = ({onPress}) => {
 }
 
 const LoginScreen = ({navigation}) => {
+
+    
+
     return (
         <View style={styles.container}>
             <ImageBackground 
             source={require("../Images/backgroundImg.jpg")}
             style={styles.background}
             />
-            <LoginExit 
-            // onPress={() => navigation.goBack()}
-            />
+            {/* <LoginExit 
+            onPress={() => navigation.goBack()}
+            /> */}
             <View style={styles.content}>
-                <View style={logoStyle.container}>
+                <View style={Login.logoContainer}>
                     <View style={styles.Logo}>
                         <MaterialCommunityIcons 
                             name='airplane'
@@ -45,14 +48,21 @@ const LoginScreen = ({navigation}) => {
                 </View>
                 
                 <View style={Login.LoginContainer}>
-                        <View style={square.container}>
+                        <View style={Login.square}>
                             <Text 
                             style={RegStyles.title}
                             >Login</Text>
-                            <AppTextInput description='Name:' />
-                            <AppTextInput description='Password:' textContentType='password' />
+                            <AppTextInput 
+                            description='Name:' 
+                            clearTextOnFocus={true}
+                            />
+                            <AppTextInput 
+                            description='Password:' 
+                            secureTextEntry={true}
+                            clearTextOnFocus={true}
+                            />
                             <RegLogButton title='Login' 
-                            // onPress={() => navigation.navigate('account')}
+                            onPress={() => navigation.navigate('account')}
                             />
                         </View>
                 </View>

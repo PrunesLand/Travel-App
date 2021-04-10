@@ -29,7 +29,7 @@ export default function AccountScreen({username, navigation}) {
             style={account.buttonContainer}
             > 
                 <Button title='Sydney' 
-                // onPress={() => navigation.navigate('travel')}
+                onPress={() => navigation.navigate('travel')}
                 />
             </View>
             {/* Logout button is stored */}
@@ -37,7 +37,7 @@ export default function AccountScreen({username, navigation}) {
             style={account.logoffContainer}
             >
                 <LogOffButton title='Log off' 
-                // onPress={() => navigation.navigate('welcome')}
+                onPress={() => navigation.navigate('welcome')}
                 />
             </View>
         </View>

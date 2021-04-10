@@ -1,12 +1,12 @@
 import React from 'react'
 import { View, Text, TouchableOpacity , StyleSheet} from 'react-native'
 
-export default function Item({city}) {
+export default function Item({city, navigation, onPress}) {
     return (
-        <TouchableOpacity>
-            <View style={item.container}>
+        <TouchableOpacity onPress={onPress}>
+            <View style={item.container} >
                 <Text style={item.text}>{city}</Text>
-            </View>
+            </View> 
         </TouchableOpacity>
     )
 }

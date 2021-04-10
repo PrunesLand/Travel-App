@@ -35,13 +35,13 @@ function WelcomeScreen({navigation}) {
                         <View>
                             <Text style={styles.textStyle}>New member? Register here:</Text>
                             <WelcomeButton title='Register' 
-                            // onPress={() => navigation.navigate('register')}
+                            onPress={() => navigation.navigate('register')}
                              />
                         </View>
                         <View>
                             <Text style={styles.textStyle}>Already a member? Login here:</Text>
                             <WelcomeButton title='Login' 
-                            // onPress={() => navigation.navigate('login')}
+                            onPress={() => navigation.navigate('login')}
                             />
                         </View>
                     </View>

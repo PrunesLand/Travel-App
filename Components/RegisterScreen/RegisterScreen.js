@@ -28,9 +28,9 @@ const RegisterScreen = ({navigation}) => {
             source={require("../Images/backgroundImg.jpg")}
             style={styles.background}
             />
-            <RegisterExit 
-            // navigation={() => navigation.goBack()}
-            />
+            {/* <RegisterExit 
+            navigation={() => navigation.goBack()}
+            /> */}
             <View style={styles.content}>
                 <View style={logoStyle.container}>
                     <View style={styles.Logo}>
@@ -43,12 +43,22 @@ const RegisterScreen = ({navigation}) => {
                 </View>
                 <View style={RegStyles.container}>
                         <View style={square.container}>
-                            <Text style={RegStyles.title}>Register</Text>
-                            <AppTextInput description='Name:' />
-                            <AppTextInput description='Email:' textContentType='emailAddress'/>
-                            <AppTextInput description='Password:' textContentType='password' />
+                            <Text style={RegStyles.title}
+                            
+                            >Register</Text>
+                            <AppTextInput 
+                            description='Name:'
+                            />
+                            <AppTextInput 
+                            description='Email:' 
+                            keyboardType='email-address'
+                            />
+                            <AppTextInput 
+                            description='Password:'
+                            secureTextEntry={true}
+                            />
                             <RegLogButton title='Register' 
-                            // onPress={() => navigation.navigate('welcome')}
+                            onPress={() => navigation.navigate('welcome')}
                             />
                         </View>
                 </View>
