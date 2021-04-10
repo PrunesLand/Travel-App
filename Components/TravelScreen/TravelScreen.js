@@ -31,6 +31,25 @@ const Data = [
     },
 ]
 
+const category = [
+    {
+        label:'all',
+        value: 1
+    },
+    {
+        label: 'food',
+        value:2
+    },
+    {
+        label: 'visit',
+        value:3
+    },
+    {
+        label:'activity',
+        value: 4
+    }
+] 
+
 const TravelHeader = ({onPress}) => {
     return(
         <View style={travel.travelHeader}>
@@ -61,13 +80,23 @@ const TravelHeader = ({onPress}) => {
     )
 }
 
-const Filter = () => {
+const Filter = ({placeholder}) => {
     const [modalVisible, setModalVisible] = useState(false);
+
+    const RenderItem = ({label}) => (
+
+        <View style={filter.itemContainer}>
+            <TouchableOpacity onPress={console.log()}>
+                <Text style={filter.itemText} onPress={()=>setModalVisible(false)}>{label}</Text>
+            </TouchableOpacity>
+        </View>
+    )
+
     return(
         <View style={filter.container}>
             <TouchableHighlight onPress={() => setModalVisible(true)}>
                 <View style={filter.wrapper}>
-                    <Text>categ</Text>
+                    <Text>test</Text>
                     <MaterialCommunityIcons
                     name='chevron-down' 
                     size={24}
@@ -77,6 +106,15 @@ const Filter = () => {
             <Modal visible={modalVisible} animationType='slide'>
                 <View style={account.background}>
                     <Button title='close' onPress={()=> setModalVisible(false)}/>
+                    <FlatList
+                        data={category}
+                        keyExtractor={item => item.value.toString()}
+                        renderItem={({item}) =>
+                        <RenderItem
+                        label = {item.label}
+                        />
+                    }
+                    />
                 </View>
             </Modal>
                

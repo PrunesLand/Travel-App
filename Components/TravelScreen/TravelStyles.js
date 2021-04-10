@@ -116,6 +116,14 @@ export const filter = StyleSheet.create({
         flexDirection:'row',
         justifyContent:'center',
         paddingTop:20
+    },
+    itemContainer:{
+        height:50,
+        width:100
+    },
+    itemText:{
+        color:'#000',
+        fontSize:30
     }
 })
 
