@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native'
-
+import React from 'react';
 export const account = StyleSheet.create({
     header:{
         // height:'10vh',
@@ -20,9 +20,9 @@ export const account = StyleSheet.create({
     username:{
         // height:'25vh',
         // width:'100%',
-
         flex:1,
         height: 40,
+        width:'100%',
         display:'flex',
         textAlign:'center',
         alignContent:'center',
@@ -31,6 +31,7 @@ export const account = StyleSheet.create({
     userText:{
         fontSize:30,
         color:'#2D6A4F',
+        textAlign:'center'
     
     },  
     buttonContainer:{

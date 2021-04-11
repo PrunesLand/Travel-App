@@ -22,13 +22,13 @@ export default function AccountScreen({ navigation, route}) {
             >
                 <Text 
                 style={account.userText}
-                >Hi, {route.params.paramName} </Text>
+                >Hi, {route.params.paramName}! </Text>
             </View>
             {/* sydney button is stored */}
             <View 
             style={account.buttonContainer}
             > 
-                <Button title='Sydney' 
+                <Button title='Travel' 
                 onPress={() => navigation.navigate('travel')}
                 />
             </View>

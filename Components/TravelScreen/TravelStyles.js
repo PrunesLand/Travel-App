@@ -1,63 +1,28 @@
 import {StyleSheet} from 'react-native'
+import React from 'react';
 
 export const travel = StyleSheet.create({
-    // imgContainer:{
-    //     height:'30vh',
-    //     width:'100%',
-    //     display:'flex',
-    //     justifyContent:'center',
-    //     alignItems:'center',
-        
-        
+    listContainer:{
+        height:100,
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    listItem:{
+        height:100,
+        padding: 50,
+        flex:1
 
-    // },
-    // listContainer:{
-    //     height:'30vh',
-    //     display:'flex',
-    //     flexDirection:'column',
-    //     justifyContent:'center',
-    //     alignItems:'center'
-    // },
-    // listHeader:{
-    //     fontSize:30,
-    //     textAlign:'center',
-    //     color:'#fff'
-    // },
-    // addContainer:{
-    //     height:'15vh',
-    //     width:'100%',
-    //     display:'flex',
-    //     flexDirection:'row',
-    //     justifyContent:'center',
-    //     paddingTop:'2vh'
-        
-    // },
-    // plus:{
-    //     top:'1.2vh',
-    //     left:'1vh'
-    // },
-    // image:{
-    //     width:'100%',
-    //     height:'100%',
-    //     opacity: 70
-        
-    // },
-    // imgText:{
-    //     position:'absolute',
-    //     fontSize:40,
-    //     color:'#fff',
-        
-    // },
+    },
     renderItems:{
-        // height:'10vh',
-        // width:'100%',
+       
         height:65,
         flex:1
         
     },
     travelHeader:{
-        // height:'10vh',
-        // width:'100%',
+       
         height:80,
         backgroundColor:'#2D6A4F',
         display:'flex',
@@ -65,8 +30,7 @@ export const travel = StyleSheet.create({
         
     },
     back:{
-        // height:'100%',
-        // width:'10vh',
+       
         height:60,
         top:15,
         position:'absolute',
@@ -97,6 +61,20 @@ export const travel = StyleSheet.create({
     deleteView:{
         width:75,
         backgroundColor:'#FFF'
+    },
+    separator:{
+        height:20,
+        width:100,
+        backgroundColor:'#FFF'
+    }
+})
+
+export const list = StyleSheet.create({
+    separator:{
+        height:20,
+        width:'100%',
+        
+
     }
 })
 
@@ -106,15 +84,7 @@ export const filter = StyleSheet.create({
         // width:'100%',
         height:60,
         backgroundColor:'#B7E4C7',
-        borderBottomWidth: 3,
-        borderColor: '#2D6A4F'
     },
-    // selector:{
-    //     height:'5vh',
-    //     width:'20vh',
-    //     backgroundColor:'#f5f5',
-    //     color:'#fff'
-    // },
     wrapper:{
         display:'flex',
         flexDirection:'row',
@@ -123,16 +93,24 @@ export const filter = StyleSheet.create({
     },
     itemContainer:{
         height:50,
-        width:100
+        width:'100%',
+        textAlign:'center',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
     },
     itemText:{
         color:'#000',
-        fontSize:30
+        fontSize:30,
+        textAlign:'center'
+    },
+    categoryText:{
+        fontSize:20
     }
 })
 
 export const add = StyleSheet.create({
-    container:{
+    buttonContainer:{
         height:50,
         width:90,
         backgroundColor:'#2D6A4F',
@@ -142,6 +120,48 @@ export const add = StyleSheet.create({
         alignItems:'center',
         borderRadius:15,
         borderWidth:5,
-        borderColor:'#1B4332'
+        borderColor:'#1B4332',
+        left:150,
+        
+    },
+    container:{
+        height:250,
+        display:'flex',
+        justifyContent:'center'
+    },
+    modalContainer:{
+        display:'flex',
+        justifyContent:'center',
+        textAlign:'center'
+    },
+    textInput:{
+        width:'100%',
+        height:100,
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    textInputTitle:{
+        top:30,
+        fontSize:20
+    },
+    listContainer:{
+        width:'100%',
+        height:200,
+        display:'flex',
+        alignItems:'center'
+    },
+    listContainerText:{
+        height:50,
+        width:'100%',
+        fontSize:20,
+        textAlign:'center',
+        top:15
+    },
+    plusContainer:{
+        width:'100%',
+        height:80,
+        display:'flex',
+        alignItems:'center'
     }
 })

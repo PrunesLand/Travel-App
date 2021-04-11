@@ -25,6 +25,8 @@ const item = StyleSheet.create({
         alignItems:'center',
         borderColor:'#1B4332',
         borderWidth:6,
+        left:30,
+        
         
 
     },

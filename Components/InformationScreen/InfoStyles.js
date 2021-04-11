@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native'
-
+import React from 'react';
 
 export const info = StyleSheet.create({
     titleText:{
@@ -10,22 +10,16 @@ export const info = StyleSheet.create({
         top:60
     },
     HeroContainer:{
-        // height:'30vh',
-        // width:'100%',
         height:200,
         textAlign:'center',
         backgroundColor:'#2D6A4F'
     },
     hero:{
-        // width:'100%',
-        // height:'30vh',
         flex:1,
         height:200,
         opacity:0.5
     },
     textContainer:{
-        // height:'100%',
-        // width:'100%',
         flex:1,
         display:'flex',
         position:'absolute',
@@ -43,9 +37,6 @@ export const info = StyleSheet.create({
         alignItems:'center'
     },
     locationContainer:{
-        // height:'12vh',
-        // width:'100%',
-        
         height:100,
         display:'flex',
         justifyContent:'center',
@@ -60,15 +51,32 @@ export const info = StyleSheet.create({
         bottom:10
     },
     locationTitleText:{
-        fontSize:25
+        fontSize:25,
+        width:120,
+        textAlign:'center'
+    },
+    textInput:{
+        color:'#000',
+        fontSize:20,
+        height:30,
+        width:100
+    },
+    location:{
+        height:30,
+        width:120,
+        color:'#000',
+        textAlign:'center',
+        fontSize:20
+    },
+    descriptionText:{
+        height:120,
+        width:'100%',
+        paddingLeft:15
     }
 })
 
 export const description = StyleSheet.create({
     header:{
-        // width:'100%',
-        // height:'5vh',
-      
         height:50,
         display:'flex',
         flexDirection:'row',

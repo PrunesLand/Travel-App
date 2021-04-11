@@ -2,7 +2,7 @@ import React , {useState}from 'react'
 import { View, Text, FlatList, ImageBackground, TouchableOpacity, TouchableHighlight, Modal, Button } from 'react-native'
 import { account } from '../AccountScreen/AccountStyles'
 import AppTextInput from '../TextInput/AppTextInput'
-import {travel,filter, add} from './TravelStyles'
+import {travel,filter, add, list} from './TravelStyles'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import Item from './Item'
 import {Formik} from 'formik'
@@ -12,39 +12,39 @@ const Data = [
         id:'1',
         title: 'Surfing',
         category:'activity',
-        date:'',
-        location:'',
-        description:''
+        date:'10/04/21',
+        location:'bondi',
+        description:'surf at the beach'
     },
     {
         id:'2',
         title: 'Opera house',
         category:'visit',
-        date:'',
-        location:'',
-        description:''
+        date:'11/04/21',
+        location:'city',
+        description:'take pictures of opera house'
     },
     {
         id:'3',
         title: 'Sushi',
         category:'food',
-        date:'',
-        location:'',
-        description:''
+        date:'12/04/21',
+        location:'chatswood',
+        description:'eat sushi'
     },
 ]
 
 const categories = [
     {
-        label:'activity',
+        label:'Activity',
         value: 1
     },
     {
-        label: 'food',
+        label: 'Food',
         value:2
     },
     {
-        label: 'visit',
+        label: 'Visit',
         value:3
     }
     
@@ -53,29 +53,9 @@ const categories = [
 const TravelHeader = ({onPress}) => {
     return(
         <View style={travel.travelHeader}>
-                
-                {/* <TouchableHighlight onPress={onPress}>
-
-                    <View style={travel.back} >
-                        <MaterialCommunityIcons
-                        name='chevron-left'
-                        size={60}
-                        color='#fff'
-                        />
-                    </View>
-                </TouchableHighlight>
-                
-                <View style={travel.account}>
-                    <MaterialCommunityIcons
-                    name='account-circle'
-                    size={45}
-                    color='#fff'
-                    />
-                </View> */}
                 <View style={travel.headerTextContainer}>
                     <Text style={travel.headerText}>Travels</Text>
                 </View>
-        
         </View>
     )
 }
@@ -94,15 +74,15 @@ const Filter = ({placeholder, onSelectedItem, selectedItem}) => {
 
     return(
         <View style={filter.container}>
-            <TouchableHighlight onPress={() => setModalVisible(true)}>
+            <TouchableOpacity onPress={() => setModalVisible(true)}>
                 <View style={filter.wrapper}>
-                    <Text>{selectedItem? selectedItem.label: placeholder}</Text>
+                    <Text style={filter.categoryText}>{selectedItem? selectedItem.label: placeholder}</Text>
                     <MaterialCommunityIcons
                     name='chevron-down' 
                     size={24}
                     />
                 </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
             <Modal visible={modalVisible} animationType='slide'>
                 <View style={account.background}>
                     <Button title='close' onPress={()=> setModalVisible(false)}/>
@@ -135,12 +115,9 @@ const List = ({onPress}) => {
         setTravel(newDataList);
     }
 
-    return(
-        <View style={travel.listContainer}>
-                <FlatList
-                data={travel}
-                keyExtractor={item => item.id}
-                renderItem={({item})=> <Item 
+    const RenderItem = ({item, onPress}) => (
+        <View style={travel.listItem}>
+            <Item 
                 city={item.title} 
                 onPress={onPress}
                 onSwipeLeft={() =>
@@ -152,11 +129,21 @@ const List = ({onPress}) => {
                             color='#000'
                             />
                         </TouchableOpacity>
-                    </View>
-                        
-                    
+                    </View>  
                 }
-                />}
+                />
+        </View>
+    )
+
+    return(
+        <View style={travel.listContainer}>
+                <FlatList
+                data={travel}
+                keyExtractor={item => item.id}
+                renderItem={({item})=> <RenderItem item={item} onPress={onPress}/>}
+                ItemSeparatorComponent={() =>
+                    <View style={list.separator}/>
+                }
                 />
         </View>
     )
@@ -165,7 +152,6 @@ const List = ({onPress}) => {
 const AddList = () => {
 
     const [modalVisible, setModalVisible] = useState(false);
-
 
     const RenderItem = ({label, onPress}) => (
 
@@ -177,10 +163,10 @@ const AddList = () => {
     )
 
     return(
-    <View style={filter.container}>
+    <View style={add.container}>
 
     <TouchableOpacity onPress={() => setModalVisible(true)}>
-        <View style={add.container}>
+        <View style={add.buttonContainer}>
             <Text style={{color:'#fff'}}>Add</Text>
                 <MaterialCommunityIcons
                     name='plus'
@@ -194,38 +180,51 @@ const AddList = () => {
                 <Button title='close' onPress={()=> setModalVisible(false)}/>
                
                 <Formik
-                initialValues={{title:'', category:''}}
+                initialValues={{
+                    id:'4',
+                    title: '',
+                    category:'',
+                    date:'12/04/21',
+                    location:'chatswood',
+                    description:'eat sushi'
+                }}
                 onSubmit = {values => console.log(values)}
-
+                style={add.modalContainer}
                 >
                 {({handleChange, handleSubmit}) =>(
 
                     <>
-                    <AppTextInput
-                    placeholder='title'
-                    onChangeText = {handleChange('title')}
-                    />
-                    <FlatList
-                    data={categories}
-                    keyExtractor={item => item.value.toString()}
-                    renderItem={({item}) =>
+                    <View style={add.textInput}>
+                        <Text style={add.textInputTitle}>Enter Title:</Text>
+                        <AppTextInput
+                        placeholder='title'
+                        onChangeText = {handleChange('title')}
+                        />
+                    </View>
+                    <View style={add.listContainer}> 
+                        <Text style={add.listContainerText}>Select Category:</Text>
+                        <FlatList
+                        data={categories}
+                        keyExtractor={item => item.value.toString()}
+                        renderItem={({item}) =>
                         <RenderItem
                         label = {item.label}
-                        onPress={()=>{
-                            setModalVisible(false);
-                            
-                        }}
+                        onPress={handleChange('category')}
                         />
-                    }                    
-                    />
-                    <TouchableOpacity onPress={handleSubmit}>
-                        <View>
-                            <MaterialCommunityIcons
-                            name='plus'
-                            size={55}
-                            />
-                        </View>
-                    </TouchableOpacity>
+                        }                    
+                        />
+                    </View>
+                    <View style={add.plusContainer}>
+                        <TouchableOpacity onPress={handleSubmit}>
+                            <View>
+                                <MaterialCommunityIcons
+                                name='plus'
+                                size={55}
+                                color='#2D6A4F'
+                                />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
                     </>
                 )}
 

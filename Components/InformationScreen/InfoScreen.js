@@ -3,18 +3,11 @@ import { View, Text, FlatList, StyleSheet, TouchableHighlight, ImageBackground }
 import { account} from '../AccountScreen/AccountStyles'
 import { info, description  } from './InfoStyles'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
+import { TextInput } from 'react-native-gesture-handler'
 
 const InfoHeader = () => {
     return(
         <View style={account.header}>
-            {/* <TouchableHighlight>
-            <MaterialCommunityIcons
-            name='close'
-            size={45}
-            color='#fff'
-            />
-            
-            </TouchableHighlight> */}
         </View>
     )
 }
@@ -27,9 +20,9 @@ const InfoHero = () => {
             source={require('../Images/sydney.jpg')}/>
             <View style={info.textContainer}>
                 
-                    <Text style={info.titleText}>Activities in </Text>
+                    <Text style={info.titleText}>Activity name </Text>
                     <View style={info.setDate}>
-                        <Text>set Date</Text>
+                        <Text style={info.textInput}>Enter Date</Text>
                         <TouchableHighlight>
 
                         <MaterialCommunityIcons
@@ -58,7 +51,7 @@ const SetLocation = () => {
                 />
                 </TouchableHighlight>
             </View>
-            <Text>Set location</Text>
+            <Text style={info.location}>Set location</Text>
         </View>
     )
 }
@@ -76,7 +69,7 @@ const Description = () => {
                     />
                 </TouchableHighlight>
             </View>
-            <Text>Set Description</Text>
+            <Text style={info.descriptionText}>Set Description</Text>
         </View>
     )
 }
