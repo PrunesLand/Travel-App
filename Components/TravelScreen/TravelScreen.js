@@ -127,12 +127,36 @@ const Filter = ({placeholder, onSelectedItem, selectedItem}) => {
 }
 
 const List = ({onPress}) => {
+
+    const [travel, setTravel] = useState(Data)
+
+    const handleDelete = (travels) => {
+        const newDataList =  travel.filter(item => item.id !== travels.id);
+        setTravel(newDataList);
+    }
+
     return(
         <View style={travel.listContainer}>
                 <FlatList
-                data={Data}
+                data={travel}
                 keyExtractor={item => item.id}
-                renderItem={({item})=> <Item city={item.title} onPress={onPress}/>}
+                renderItem={({item})=> <Item 
+                city={item.title} 
+                onPress={onPress}
+                onSwipeLeft={() =>
+                    <View style={travel.deleteView}>
+                        <TouchableOpacity onPress={()=>handleDelete(item)}>
+                            <MaterialCommunityIcons
+                            name='trash-can'
+                            size={35}
+                            color='#000'
+                            />
+                        </TouchableOpacity>
+                    </View>
+                        
+                    
+                }
+                />}
                 />
         </View>
     )
@@ -141,6 +165,7 @@ const List = ({onPress}) => {
 const AddList = () => {
 
     const [modalVisible, setModalVisible] = useState(false);
+
 
     const RenderItem = ({label, onPress}) => (
 
@@ -215,7 +240,6 @@ const AddList = () => {
 
 const TravelScreen = ({navigation}) => {
     const [category, setCategory] = useState()
-    
 
     return (
         <View style={account.background}>
@@ -225,7 +249,10 @@ const TravelScreen = ({navigation}) => {
             selectedItem = {category}
             onSelectedItem = {item => setCategory(item)}
             />
-            <List onPress={()=> navigation.navigate('info')}/>
+            <List 
+            onPress={()=> navigation.navigate('info')}
+            
+            />
             <AddList/>
            
         </View>

@@ -93,6 +93,10 @@ export const travel = StyleSheet.create({
         color:'#fff',
         fontSize:40,
         textAlign: 'center'
+    },
+    deleteView:{
+        width:75,
+        backgroundColor:'#FFF'
     }
 })
 

@@ -1,13 +1,16 @@
 import React from 'react'
 import { View, Text, TouchableOpacity , StyleSheet} from 'react-native'
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 
-export default function Item({city, onPress}) {
+export default function Item({city, onPress, onSwipeLeft}) {
     return (
-        <TouchableOpacity onPress={onPress}>
-            <View style={item.container} >
-                <Text style={item.text}>{city}</Text>
-            </View> 
-        </TouchableOpacity>
+        <Swipeable renderRightActions={onSwipeLeft}>
+            <TouchableOpacity onPress={onPress}>
+                <View style={item.container} >
+                    <Text style={item.text}>{city}</Text>
+                </View> 
+            </TouchableOpacity>
+        </Swipeable>
     )
 }
 
