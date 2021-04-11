@@ -5,28 +5,31 @@ import AppTextInput from '../TextInput/AppTextInput'
 import {travel,filter, add} from './TravelStyles'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import Item from './Item'
-
+import {Formik} from 'formik'
 
 const Data = [
     {
         id:'1',
-        city: 'Surfing',
+        title: 'Surfing',
         category:'activity',
-        title:'',
+        date:'',
+        location:'',
         description:''
     },
     {
         id:'2',
-        city: 'Blue Mountains',
+        title: 'Opera house',
         category:'visit',
-        title:'',
+        date:'',
+        location:'',
         description:''
     },
     {
         id:'3',
-        city: 'Sushi',
+        title: 'Sushi',
         category:'food',
-        title:'',
+        date:'',
+        location:'',
         description:''
     },
 ]
@@ -124,19 +127,12 @@ const Filter = ({placeholder, onSelectedItem, selectedItem}) => {
 }
 
 const List = ({onPress}) => {
-    // const renderItem = ({item}) => (
-        
-    //         <View style={travel.renderItems}>
-    //             <Item city={item.city} onPress={onPress}/>
-    //         </View>
-        
-    // )
     return(
         <View style={travel.listContainer}>
                 <FlatList
                 data={Data}
                 keyExtractor={item => item.id}
-                renderItem={({item})=> <Item city={item.city} onPress={onPress}/>}
+                renderItem={({item})=> <Item city={item.title} onPress={onPress}/>}
                 />
         </View>
     )
@@ -145,6 +141,15 @@ const List = ({onPress}) => {
 const AddList = () => {
 
     const [modalVisible, setModalVisible] = useState(false);
+
+    const RenderItem = ({label, onPress}) => (
+
+        <View style={filter.itemContainer}>
+            <TouchableOpacity onPress={onPress}>
+                <Text style={filter.itemText}>{label}</Text>
+            </TouchableOpacity>
+        </View>
+    )
 
     return(
     <View style={filter.container}>
@@ -162,15 +167,45 @@ const AddList = () => {
         <Modal visible={modalVisible} animationType='slide'>
             <View style={account.background}>
                 <Button title='close' onPress={()=> setModalVisible(false)}/>
-                <AppTextInput placeholder='insert title'/>
-                <TouchableOpacity onPress={()=> console.log()}>
-                    <View>
-                        <MaterialCommunityIcons
-                        name='plus'
-                        size={55}
+               
+                <Formik
+                initialValues={{title:'', category:''}}
+                onSubmit = {values => console.log(values)}
+
+                >
+                {({handleChange, handleSubmit}) =>(
+
+                    <>
+                    <AppTextInput
+                    placeholder='title'
+                    onChangeText = {handleChange('title')}
+                    />
+                    <FlatList
+                    data={categories}
+                    keyExtractor={item => item.value.toString()}
+                    renderItem={({item}) =>
+                        <RenderItem
+                        label = {item.label}
+                        onPress={()=>{
+                            setModalVisible(false);
+                            
+                        }}
                         />
-                    </View>
-                </TouchableOpacity>
+                    }                    
+                    />
+                    <TouchableOpacity onPress={handleSubmit}>
+                        <View>
+                            <MaterialCommunityIcons
+                            name='plus'
+                            size={55}
+                            />
+                        </View>
+                    </TouchableOpacity>
+                    </>
+                )}
+
+                </Formik>
+
             </View>
         </Modal>
     </View>
