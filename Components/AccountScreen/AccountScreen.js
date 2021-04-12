@@ -1,43 +1,42 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import {account} from './AccountStyles'
+import { account } from './AccountStyles'
 import Button from './Button'
 import LogOffButton from './LogOffButton'
 
 
-export default function AccountScreen({ navigation, route}) {
+export default function AccountScreen({ navigation, route }) {
     return (
-        <View 
-        style={account.background}
+        <View
+            style={account.background}
         >
-            <View 
-            style={account.header}
+            <View
+                style={account.header}
             >
-                <Text 
-                style={account.headerText}
+                <Text
+                    style={account.headerText}
                 >Account</Text>
             </View>
-            <View 
-            style={account.username}
+            <View
+                style={account.username}
             >
-                <Text 
-                style={account.userText}
+                <Text
+                    style={account.userText}
                 >Hi, {route.params.paramName}! </Text>
             </View>
-            {/* sydney button is stored */}
-            <View 
-            style={account.buttonContainer}
-            > 
-                <Button title='Travel' 
-                onPress={() => navigation.navigate('travel')}
+            <View
+                style={account.buttonContainer}
+            >
+                <Button title='Travel'
+                    onPress={() => navigation.navigate('travel')}
                 />
             </View>
-            {/* Logout button is stored */}
-            <View 
-            style={account.logoffContainer}
+
+            <View
+                style={account.logoffContainer}
             >
-                <LogOffButton title='Log off' 
-                onPress={() => navigation.navigate('welcome')}
+                <LogOffButton title='Log off'
+                    onPress={() => navigation.navigate('welcome')}
                 />
             </View>
         </View>

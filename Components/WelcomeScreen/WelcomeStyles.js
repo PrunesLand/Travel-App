@@ -1,5 +1,6 @@
 
 import {  StyleSheet } from 'react-native'
+import React from 'react';
 
 export const styles = StyleSheet.create({
     container:{
@@ -20,7 +21,7 @@ export const styles = StyleSheet.create({
         // width:'100%',
         // height:'15vh',
        
-        left:110,
+        left:100,
         top:20,
         alignSelf:'stretch',
         flex:1,
@@ -72,7 +73,7 @@ export const styles = StyleSheet.create({
         // width:'100%',
         height:35,
         flex:1,
-        left:120,
+        left:110,
         top:80,
         display:'flex',
         justifyContent:'center',
@@ -83,7 +84,7 @@ export const styles = StyleSheet.create({
         height:160,
         
         backgroundColor:'#2D6A4F',
-        borderRadius: 50,
+        borderRadius: 100,
         textAlign: 'center',
         display:'flex',
         // justifyContent:'center',

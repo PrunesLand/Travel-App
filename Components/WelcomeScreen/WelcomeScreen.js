@@ -14,7 +14,7 @@ function WelcomeScreen({navigation}) {
             
             <View style={styles.content}>
                 <View style={styles.titleContainer}>
-                    <Text style={styles.title}>Travel</Text>
+                    <Text style={styles.title}>Sydney</Text>
                     <Text style={styles.title}>Wiki</Text>
                 </View>
 
