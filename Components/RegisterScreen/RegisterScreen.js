@@ -2,12 +2,12 @@ import React from 'react'
 import { View, Text, ImageBackground, TouchableHighlight } from 'react-native'
 import { styles } from '../WelcomeScreen/WelcomeStyles'
 import { logoStyle, RegStyles, square } from './RegisterStyles'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
 import AppTextInput from '../TextInput/AppTextInput'
 import RegLogButton from './RegLogButton'
 import { Formik } from 'formik'
 import * as yup from 'yup';
 
+// Below is the validation schema used to warn the user of the input requirements
 let schema = yup.object().shape({
 
     username: yup.string().required().min(4),
@@ -16,6 +16,7 @@ let schema = yup.object().shape({
 
 });
 
+// Navigation is within the parameters of every major screen to navigate between screens
 const RegisterScreen = ({ navigation }) => {
 
     return (
@@ -24,9 +25,6 @@ const RegisterScreen = ({ navigation }) => {
                 source={require("../Images/backgroundImg.jpg")}
                 style={styles.background}
             />
-            {/* <RegisterExit 
-            navigation={() => navigation.goBack()}
-            /> */}
             <View style={styles.content}>
                 <View style={RegStyles.container}>
                     <View style={square.container}>

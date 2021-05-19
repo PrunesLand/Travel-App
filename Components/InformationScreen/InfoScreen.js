@@ -1,8 +1,6 @@
 import React from 'react'
 import { View, Text, FlatList, StyleSheet, TouchableHighlight, ImageBackground } from 'react-native'
 import { account } from '../AccountScreen/AccountStyles'
-import { info, description } from './InfoStyles'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
 import InfoHero from './InfoHero'
 import SetLocation from './SetLocation'
 import Description from './Description'
@@ -13,7 +11,7 @@ const InfoHeader = () => {
         </View>
     )
 }
-
+// This screen displays the values from the clicked item from the travel screen. Values will be passed as parameters into each component below
 export default function InfoScreen() {
 
     return (

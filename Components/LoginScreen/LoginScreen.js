@@ -8,6 +8,7 @@ import AppTextInput from '../TextInput/AppTextInput'
 import * as yup from 'yup';
 import { Formik } from 'formik'
 
+// This schema is used to enforce the user to input both fields
 let schema = yup.object().shape({
 
     username: yup.string().required(),
@@ -30,7 +31,7 @@ const users = [
     }
 
 ];
-
+// Below is used to check whether the user has made an account before. Once name and password is inputted, it will search through the list and find one object with matching values.
 const validateUser = ({ username, password }) => {
     return (
         users.filter((user) => user.username === username && user.password === password).length > 0
@@ -44,6 +45,7 @@ const LoginScreen = ({ navigation }) => {
                 source={require("../Images/backgroundImg.jpg")}
                 style={styles.background}
             />
+            {/* This is where the content is structured */}
             <View style={styles.content}>
 
                 <View style={Login.LoginContainer}>
@@ -57,12 +59,12 @@ const LoginScreen = ({ navigation }) => {
                             onSubmit={(values, { resetForm }) => {
                                 if (validateUser(values)) {
                                     resetForm();
+                                    // Below navigation is performing a double jump as it needs to cross from one navigator into the next to pass a parameter value.
                                     navigation.navigate('account', {
                                         screen: 'account',
                                         params: { paramName: values.username }
                                     }
                                     );
-                                    // createUser(values);
                                 }
                                 else {
                                     resetForm();
@@ -74,6 +76,7 @@ const LoginScreen = ({ navigation }) => {
 
                             {({ handleChange, handleSubmit, errors, setFieldTouched, touched, values }) => (
                                 <>
+                                    {/* Below is the structure of the login input  */}
                                     <AppTextInput
                                         description='Name:'
                                         clearTextOnFocus={true}
@@ -99,19 +102,6 @@ const LoginScreen = ({ navigation }) => {
                             )}
 
                         </Formik>
-
-                        {/* <AppTextInput 
-                            description='Name:' 
-                            clearTextOnFocus={true}
-                            />
-                            <AppTextInput 
-                            description='Password:' 
-                            secureTextEntry={true}
-                            clearTextOnFocus={true}
-                            />
-                            <RegLogButton title='Login' 
-                            onPress={() => navigation.navigate('account')}
-                            /> */}
                     </View>
                 </View>
             </View>

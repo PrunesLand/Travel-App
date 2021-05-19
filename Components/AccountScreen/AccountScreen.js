@@ -22,12 +22,14 @@ export default function AccountScreen({ navigation, route }) {
             >
                 <Text
                     style={account.userText}
+                // Each user will have their name displayed here for every successful login
                 >Hi, {route.params.paramName}! </Text>
             </View>
             <View
                 style={account.buttonContainer}
             >
                 <Button title='Travel'
+                    // Users will have the option to either navigate to the information screen with this button or through the tab navigator below.
                     onPress={() => navigation.navigate('travel')}
                 />
             </View>
@@ -36,6 +38,7 @@ export default function AccountScreen({ navigation, route }) {
                 style={account.logoffContainer}
             >
                 <LogOffButton title='Log off'
+                    // This screen logs the user off and takes the user to the welcome screen.
                     onPress={() => navigation.navigate('welcome')}
                 />
             </View>

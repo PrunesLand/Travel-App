@@ -2,7 +2,9 @@ import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { regButton } from './RegisterStyles'
 
-const RegLogButton = ({title, onPress}) => {
+// This is a button component that is reused in both the login screen and the register screen.
+
+const RegLogButton = ({ title, onPress }) => {
     return (
         <TouchableOpacity onPress={onPress}>
             <View style={regButton.Button}>
