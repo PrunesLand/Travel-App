@@ -16,7 +16,6 @@ const AuthNavigator = () => (
         <AppStack.Screen name='login' component={LoginScreen} options={{ title: '' }} />
         <AppStack.Screen name='travel' component={TravelScreen} />
         <AppStack.Screen name='account' component={TabNavigator} options={{ headerShown: false }} />
-
     </AppStack.Navigator>
 )
 

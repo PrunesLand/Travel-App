@@ -243,7 +243,6 @@ const TravelScreen = ({ navigation }) => {
             />
             <List
                 onPress={() => navigation.navigate('info')}
-
             />
             <AddList />
 
